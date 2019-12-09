@@ -1,32 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <form action="/Editar" method="post">{{csrf_field() }}
-
-           <label for="">TITULO</label>{{ old('edad') }}
-           <input type="text" name="title" id="" value="{{$noticia->title}}"><br>
-           <label for="">FOTO</label>
-           <input type="file" name="foto" id="" value="{{$noticia->foto}}"><br>
-
-           <label for="">SUBTITULO</label>
-           <input type="text" name="subtitle" id="" value="{{$noticia->subtitle}}"><br>
-
-           <label for="">CUERPO DE LA NOTICIA</label>
-           <input type="text" name="cuerpo" id="" value="{{$noticia->cuerpo}}"><br>
-
-           <input type="hidden" name="id" value="{{$noticia->id}}">
+@extends('layouts.app')
 
 
-           <input type="submit" value="Cambiar">
-           
-    </form>
-    <a href="/Noticias/{{$noticia->id}}/Borrar"><button>borrar</button></a>
+@section('content')
+<div class="container">
+    <form action="/Editar" method="post" enctype="multipart/form-data">{{csrf_field() }}
     
+            <div class="form-group">
+                <label>Titulo de la noticia</label>
+                <input type="text" name="title" class="form-control" placeholder="" value="{{$noticia->title}}">
+            </div>
+            
+            <div class="form-group">
+                <label>Imagen/foto</label><br>
+                <input type="file" name="foto" id="" value="{{ old('foto') }}"><br>
+            </div>
+    
+            <div class="form-group">
+                <label>Subtitulo</label>
+                <input type="text" name="subtitle" class="form-control" placeholder="" value="{{$noticia->subtitle}}">
+            </div>
+    
+            <div class="form-group">
+                <label>Cuerpo de la noticia</label>
+                <textarea class="form-control" name="cuerpo" rows="15">{{$noticia->cuerpo}}</textarea>
+            </div>
+    
+            <input type="hidden" name="id" value="{{$noticia->id}}">
+    
+            
+            <input class="btn btn-info" type="submit" value="Editar">
+     </form>
+     <a href="/Noticias/{{$noticia->id}}/Borrar"><button type="button" class="btn btn-danger">Borrar</button></a>     
+    </div>
+@endsection
+
+
 </body>
 </html>

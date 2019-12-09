@@ -1,56 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <div class="container">
-        <h2>{{$noticia->title}}</h2>
-        <div>
-            <img src="/storage/{{$noticia->foto}}" alt="">
-        </div>
-        <h4>{{$noticia->subtitle}}</h4>
-        <p>{{$noticia->cuerpo}}</p><hr>
-        <p>{{$noticia->user_id}}</p><hr>
-       
-
-        @foreach($noticia->comentarios as $comentario)
-        <p>{{$comentario->texto}} Dijo: {{$comentario->user_id}}</p>
-        @endforeach
-        
+@extends('layouts.app')
 
 
-        <!-- EL USUARIO REGISTRADO VA A TENER ACA UN FORMULARIO PARA CARGAR COMENTARIOS -->
-        <!-- <form action="/Comentario" method="post">{{csrf_field() }}
-            <label for="">Deje un comentario</label><br>
-            <input type="text" name="texto" id="">
-            <input type="hidden" name="noticia_id" value="{{$noticia->id}}"><br>
-            
 
-            <input type="submit" value="Enviar">
-
-
-        </form> -->
-        <form action="/Noticias/{{$noticia->id}}/Comentar" method="post">{{csrf_field() }}
-            <label for="">Deje un comentario</label><br>
-            <input type="text" name="texto" id="">
-            <input type="hidden" name="noticia_id" value="{{$noticia->id}}"><br>
-            
-
-            <input type="submit" value="Enviar">
-
-
-        </form>
-        
-        
-
-        <a href="/Noticias/{{$noticia->id}}/Editar"><button>editar</button></a>
-        
-    </div>
-    
+@section('content')
+                        <!-- DETALLE DE LA NOTICIA -->
+                        <div class="container card; col-12 col-lg-6">
+                            <img src="/storage/{{$noticia->foto}}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                              <h1 style="font-family: 'Bebas Neue', cursive;" class="card-title">{{$noticia->title}}</h1><hr style="background: rgb(255, 165, 80);">
+                              <h3 style="font-family: 'Roboto', sans-serif;" class="card-text">{{$noticia->subtitle}}</h3>
+                              <p style="font-family: 'Roboto', sans-serif;" class="card-text">{{$noticia->cuerpo}}</p>
+                              <p class="card-text"><small class="text-muted">{{$noticia->created_at}}</small></p>
+                              <div>
+                              @if(Auth::user()->id == 1)
+                              <a href="/Noticias/{{$noticia->id}}/Editar"><button type="button" class="btn btn-outline-info" >Editar</button></a>
+                               <!--  <a href="/Noticias/{{$noticia->id}}/Editar"><button>editar</button></a> -->
+                              @endif
+                              </div>
+                         </div><hr style="background: coral;">
+                            
+                             
+                                    <!-- SECCION DE COMENTARIOS -->
+                
+                            <div class="form-group">
+                                    <form action="/Noticias/{{$noticia->id}}/Comentar" method="post">{{csrf_field() }}
+                                      <label for="">Comentar:</label>
+                                      <input type="hidden" name="noticia_id" value="{{$noticia->id}}">
+                                      
+                                      <input type="text" name="texto" class="col-8" placeholder="" value="">  <input style="margin-left: 10px; width:100px; height: 30px; border:none;color: white; background:rgb(184, 73, 184) ;" type="submit" value="Enviar">
+                                      <small class="form-text text-muted">Deje alguna opinion sobre la noticia que acaba de leer</small>
+                                   </form>
+                            </div>
+                
+                    
+                                     <!-- LISTA DE COMENTARIOS -->
+                            @foreach($noticia->comentarios as $comentario)
+                        <div class="card">
+                          <div class="card-body">
+                              {{$comentario->texto}} Dijo: {{$comentario->user_id}}
+                            </div>
+                          </div>
+                            @endforeach
+                        </div>                      
+@endsection
     
 </body>
 </html>

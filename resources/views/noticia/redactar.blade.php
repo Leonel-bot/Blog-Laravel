@@ -1,30 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+@extends('layouts.app')
+
+
+@section('content')
+<div class="container">
     <form action="/Redactar" method="post" enctype="multipart/form-data">{{csrf_field() }} 
+        <div>
+            <h1>
+                Redactar una nueva noticia
+            </h1><hr>
+        </div>
+
+        <div class="form-group">
+                <label>Titulo de la noticia</label>
+                <input type="text" name="title" class="form-control" placeholder="" value="">
+            </div>
+            
+            <div class="form-group">
+                <label>Imagen/foto</label><br>
+                <input type="file" name="foto" id="" value=""><br>
+            </div>
+    
+            <div class="form-group">
+                <label>Subtitulo</label>
+                <input type="text" name="subtitle" class="form-control" placeholder="" value="">
+            </div>
+    
+            <div class="form-group">
+                <label>Cuerpo de la noticia</label>
+                <textarea class="form-control" name="cuerpo" rows="15"></textarea>
+            </div>
+        <input class="btn btn-primary" type="submit" value="Cargar">
         
-        <label for="">Foto</label>
-        <input type="file" name="foto" id=""><br>
-
-        <label for="">TITULO</label>
-        <input type="text" name="title" id=""><br>
-
-        <label for="">SUBTITULO</label>
-        <input type="text" name="subtitle" id=""><br>
-
-        <label for="">CUERPO DE LA NOTICIA</label>
-        <input type="text" name="cuerpo" id=""><br>
-
-
-
-        <input type="submit" value="Cargar">
     </form>
     
+</div>
+ @endsection   
 </body>
 </html>

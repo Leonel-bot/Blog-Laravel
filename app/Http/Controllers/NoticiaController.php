@@ -20,6 +20,7 @@ class NoticiaController extends Controller
         $noticias= Noticia::all();
 
         return view('noticia.lista',compact('noticias'));
+        
     }
 
     /**
@@ -90,8 +91,9 @@ class NoticiaController extends Controller
         
         $noticia= Noticia::findOrFail($id);
         
+        
         //guardo el archivo en la carpeta public
-        $ruta= $req->file('foto');
+        $ruta= $req->file('foto')->store('public');;
         //recorto la ruta y obtengo solo el nombre del archivo
         $nombreFoto= basename($ruta);
         //guardo el archivo

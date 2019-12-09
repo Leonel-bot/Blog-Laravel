@@ -1,27 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    @foreach($noticias as $noticia)
-    <div class="container">
-        <div>
-            <img src="/storage/{{$noticia->foto}}" alt="">
-        </div>
-        <h2>{{$noticia->title}}</h2>
-        <h4>{{$noticia->subtitle}}</h4>
-        <p>{{$noticia->cuerpo}}</p>
-        <p>{{$noticia->comentario}}</p>
+@extends('layouts.app')
 
-        <a href="/Noticias/{{$noticia->id}}"><button>Leer Mas</button></a>
+
+@section('content')
+
+<div class="container">
+<div class="card-deck">
+@foreach($noticias as $noticia)
+ <div class="card; col-12 col-lg-3" style="-webkit-box-shadow: 0px 6px 16px -6px rgba(0,0,0,0.3);-moz-box-shadow: 0px 6px 16px -6px rgba(0,0,0,0.3);box-shadow: 0px 6px 16px -6px rgba(0,0,0,0.3); padding: 10px; margin: 10px;">
+    <img src="/storage/{{$noticia->foto}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h1 style="font-family: 'Bebas Neue', cursive;" class="card-title">{{$noticia->title}}</h1><hr style="background:#FD7272">
+      <h4 class="card-text">{{$noticia->subtitle}}</h4>
+      <p class="card-text"><small class="text-muted">{{$noticia->created_at}} Creado por: {{$noticia->user_id}}</small></p><hr>
+      <a href="/Noticias/{{$noticia->id}}"><button style="width:150px;height: 50px; border:none;color: white; background: #B33771 ;font-size: 17px;">Leer Mas</button></a>
     </div>
-    @endforeach
+  </div>
+@endforeach
+</div>
+</div>
 
-    <div><a href="/Redactar"><button>Redactar</button></a></div>
-    
+<!-- @if(Auth::user()->id == 1)
+<div><a href="/Redactar"><button>Redactar</button></a></div>
+@endif -->  
 </body>
 </html>
+@endsection

@@ -18,7 +18,7 @@ class CreateNoticiasTable extends Migration
             $table->string('title');
             $table->string('foto');
             $table->string('subtitle');
-            $table->string('cuerpo');
+            $table->longText('cuerpo');
             $table->integer('comentario_id')->nullable();
             $table->integer('user_id')->nullable();
             $table->timestamps();
