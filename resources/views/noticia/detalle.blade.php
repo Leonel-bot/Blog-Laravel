@@ -4,7 +4,7 @@
 
 @section('content')
                         <!-- DETALLE DE LA NOTICIA -->
-                        <div class="container card; col-12 col-lg-6">
+                        <div class="container card; col-12 col-lg-6" style="background: white;padding: 10px;">
                             <img src="/storage/{{$noticia->foto}}" class="card-img-top" alt="...">
                             <div class="card-body">
                               <h1 style="font-family: 'Bebas Neue', cursive;" class="card-title">{{$noticia->title}}</h1><hr style="background: rgb(255, 165, 80);">

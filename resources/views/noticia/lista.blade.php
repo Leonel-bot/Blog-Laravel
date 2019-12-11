@@ -2,11 +2,19 @@
 
 
 @section('content')
-
-<div class="container">
-<div class="card-deck">
+<div class="card bg-dark text-white" style="background: url('https://wallpaperplay.com/walls/full/2/8/a/78281.jpg');height: 300px;width: 100%;background-position: right; margin-top: -23px;-webkit-box-shadow: 0px 7px 13px -2px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 7px 13px -2px rgba(0,0,0,0.75);
+box-shadow: 0px 7px 13px -2px rgba(0,0,0,0.75);">
+  <div class="card-img-overlay">
+    <h1 class="card-title text-center"style="font-family: 'Bungee';" >NOTICIAS GAMERS</h1>
+    <h3 class="card-text text-center"style="">El mas grande portal de noticias del mundo gamer y la cultura geek.</h3>
+    <h3 class="card-text text-center"style="">Con noticias actualizadas de todo el mundo</h3>
+  </div>
+</div>
+<div class="col-12">
+<div class="card-deck" style="margin-top:40px;justify-content: center;">
 @foreach($noticias as $noticia)
- <div class="card; col-12 col-lg-3" style="-webkit-box-shadow: 0px 6px 16px -6px rgba(0,0,0,0.3);-moz-box-shadow: 0px 6px 16px -6px rgba(0,0,0,0.3);box-shadow: 0px 6px 16px -6px rgba(0,0,0,0.3); padding: 10px; margin: 10px;">
+ <div class="card; col-12 col-lg-3" style="background:white; 0px 6px 16px -6px rgba(0,0,0,0.3);-moz-box-shadow: 0px 6px 16px -6px rgba(0,0,0,0.3);box-shadow: 0px 6px 16px -6px rgba(0,0,0,0.3); padding: 10px; margin: 10px;">
     <img src="/storage/{{$noticia->foto}}" class="card-img-top" alt="...">
     <div class="card-body">
       <h1 style="font-family: 'Bebas Neue', cursive;" class="card-title">{{$noticia->title}}</h1><hr style="background:#FD7272">
@@ -18,6 +26,7 @@
 @endforeach
 </div>
 </div>
+
 
 <!-- @if(Auth::user()->id == 1)
 <div><a href="/Redactar"><button>Redactar</button></a></div>
