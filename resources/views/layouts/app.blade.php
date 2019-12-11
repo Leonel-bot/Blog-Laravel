@@ -83,5 +83,10 @@
         
         </main>
     </div>
+    <footer id="sticky-footer" class="py-4 bg-dark text-white-50" style="background: ;">
+        <div class="container text-center">
+          <small>Copyright &copy; Leonel Martinez</small>
+        </div>
+      </footer>
 </body>
 </html>
