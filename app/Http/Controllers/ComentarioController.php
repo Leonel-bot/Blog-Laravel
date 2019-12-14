@@ -34,6 +34,7 @@ class ComentarioController extends Controller
         $comentarios->texto= $req['texto'];
         $comentarios->noticia_id= $req['noticia_id'];
         $comentarios->user_id= \Auth::user()->id;
+        $comentarios->user_name= \Auth::user()->name;
 
 
         $comentarios->save();

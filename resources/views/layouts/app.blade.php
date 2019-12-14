@@ -21,7 +21,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body >
+<body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -79,15 +79,17 @@
             </div>
         </nav>
 
-        <main class="py-4" style="background:rgb(228, 228, 228);">
+        <main class="py-4" style="background: rgb(226, 225, 225);">
             @yield('content')
         
         </main>
     </div>
-    <footer id="sticky-footer" class="py-4 bg-dark text-white-50" style="background: ;">
+    <footer id="sticky-footer" class="col-12 py-4 bg-dark text-white-50" style="">
         <div class="container text-center">
           <small>Copyright &copy; Leonel Martinez</small>
         </div>
-      </footer>
+    </footer>
 </body>
+
 </html>
+
