@@ -42,6 +42,7 @@
                         <div class="card">
                           <div class="card-body">
                               {{$comentario->texto}} Dijo: {{$comentario->user_name}}
+                              <small class="form-text text-muted">{{$noticia->created_at->diffForHumans()}}</small>
                             </div>
                           </div>
                             @endforeach

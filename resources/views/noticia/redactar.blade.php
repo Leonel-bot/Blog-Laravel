@@ -2,7 +2,7 @@
 
 
 @section('content')
-<div class="container">
+<div class="container" style="margin-top: 40px;">
     <form action="/Redactar" method="post" enctype="multipart/form-data">{{csrf_field() }} 
         <div>
             <h1>

@@ -17,7 +17,7 @@
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 
 //redactar una nueva noticia
 Route::get('/Redactar', function () {
@@ -40,7 +40,7 @@ Route::get('/Noticias/{id}/Borrar','NoticiaController@destroy');
 
 
 //Route::post('/Comentario', 'ComentarioController@create');
-Route::post('/Noticias/{id}/Comentar', 'ComentarioController@create');
+Route::post('/Noticias/{id}/Comentar', 'ComentarioController@create')->middleware('auth');
 
 
 

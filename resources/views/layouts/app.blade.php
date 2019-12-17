@@ -79,8 +79,7 @@
             </div>
         </nav>
 
-        <main class="py-4" style="background: url('/storage/{{$noticia->foto}}');    background-repeat: no-repeat;
-            background-size: cover;background-attachment: fixed;">
+        <main class="py-4"  style="margin-top: 40px;">
             @yield('content')
         
         </main>
@@ -93,4 +92,6 @@
 </body>
 
 </html>
+
+
 

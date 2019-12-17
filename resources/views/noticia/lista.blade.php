@@ -2,7 +2,7 @@
 
 
 @section('content')
-<div class="card bg-dark text-white" style="background: url('https://images.wallpaperscraft.com/image/no_mans_sky_hello_games_ps4_pc_108038_1920x1080.jpg');height: 200px;width: 100%;background-position: right; margin-top: -23px;-webkit-box-shadow: 0px 7px 13px -2px rgba(0,0,0,0.75);
+<div class="card bg-dark text-white" style="background: url('https://images.unsplash.com/photo-1498736297812-3a08021f206f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80');height: 200px;width: 100%;background-position: right; margin-top: -23px;-webkit-box-shadow: 0px 7px 13px -2px rgba(0,0,0,0.75);
 -moz-box-shadow: 0px 7px 13px -2px rgba(0,0,0,0.75);
 box-shadow: 0px 7px 13px -2px rgba(0,0,0,0.75);">
   <div class="card-img-overlay">
@@ -19,15 +19,19 @@ box-shadow: 0px 7px 13px -2px rgba(0,0,0,0.75);">
     <div class="card-body">
       <h1 style="font-family: 'Bebas Neue', cursive;" class="card-title">{{$noticia->title}}</h1><hr style="background:#FD7272">
       <h4 class="card-text">{{$noticia->subtitle}}</h4>
-      <p class="card-text"><small class="text-muted">{{$noticia->created_at}}</small></p><hr>
+      <p class="card-text"><small class="text-muted">{{$noticia->created_at->toFormattedDateString()}}</small></p><hr>
+
+
       <a href="/Noticias/{{$noticia->id}}"><button style="width:150px;height: 50px; border:none;color: white; background: #B33771 ;font-size: 19px;">Leer Mas</button></a>
     </div>
   </div>
 @endforeach
 </div>
 </div>
-
-
+<div class="pag">
+  {{$noticias->links()}}
+</div>
+<!-- https://images.wallpaperscraft.com/image/no_mans_sky_hello_games_ps4_pc_108038_1920x1080.jpg -->
 <!-- @if(Auth::user()->id == 1)
 <div><a href="/Redactar"><button>Redactar</button></a></div>
 @endif -->  
