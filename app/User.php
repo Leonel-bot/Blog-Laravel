@@ -38,10 +38,10 @@ class User extends Authenticatable
     ];
     public function noticias()
     {
-        return $this->hasMany('App\Noticia');
+        return $this->hasMany(Noticia::class, 'user_id');
     }
     public function comentarios()
     {
-        return $this->hasMany('App\Comentario');
+        return $this->hasMany(Comentario::class,'user_id');
     }
 }

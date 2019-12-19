@@ -28,18 +28,26 @@ class ComentarioController extends Controller
      */
     public function create(Request $req)
     {
+        $regla=[
+            'comentario'=> 'string'
+
+        ];
+        $mensaje=[
+            'string' =>
+            
+        ];
 
         $comentarios= new Comentario();
+        
 
         $comentarios->texto= $req['texto'];
         $comentarios->noticia_id= $req['noticia_id'];
         $comentarios->user_id= \Auth::user()->id;
-        $comentarios->user_name= \Auth::user()->name;
 
 
         $comentarios->save();
+        return redirect()->route('listaNoticias',['id'=>$req['noticia_id']]);
         return redirect('/Noticias');
-        
         
     }
 

@@ -1,4 +1,5 @@
 <?php
+use App\User;
 
 namespace App;
 
@@ -8,11 +9,11 @@ class Comentario extends Model
 {
     public function noticias()
     {
-        return $this->belongsTo('App\Noticia;');
+        return $this->belongsTo(Noticia::class, 'noticia_id');
     }
 
     public function users()
     {
-        return $this->belongsTo('App\User;');
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

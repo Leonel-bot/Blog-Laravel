@@ -1,7 +1,6 @@
 <?php
 
 namespace App;
-use App\Noticia;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,12 +10,15 @@ class Noticia extends Model
 
     public function users()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo(User::class, 'user_id');
     }
+
+
     public function comentarios()
     {
-        return $this->hasMany('App\Comentario');
+        return $this->hasMany(Comentario::class, 'noticia_id');
     }
+    
 }
 
  

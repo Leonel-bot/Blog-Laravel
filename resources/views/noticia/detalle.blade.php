@@ -41,7 +41,7 @@
                             @foreach($noticia->comentarios as $comentario)
                         <div class="card">
                           <div class="card-body">
-                              {{$comentario->texto}} Dijo: {{$comentario->user_name}}
+                              {{$comentario->users->name}} Dijo: {{$comentario->texto}}
                               <small class="form-text text-muted">{{$noticia->created_at->diffForHumans()}}</small>
                             </div>
                           </div>

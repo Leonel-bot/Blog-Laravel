@@ -14,14 +14,19 @@ class CreateNoticiasTable extends Migration
     public function up()
     {
         Schema::create('noticias', function (Blueprint $table) {
+
             $table->bigIncrements('id');
             $table->string('title');
             $table->string('foto');
             $table->string('subtitle');
             $table->longText('cuerpo');
-            $table->integer('comentario_id')->nullable();
-            $table->integer('user_id')->nullable();
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            
+            
+
             $table->timestamps();
+            
 
         });
 

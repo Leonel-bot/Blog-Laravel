@@ -12,7 +12,7 @@
 */
 
 /* Route::get('/', function () {
-    return view('welcome');
+    return view('/Noticias');
 }); */
 
 Auth::routes();
@@ -30,7 +30,7 @@ Route::post('/Redactar', 'NoticiaController@create');
 Route::get('/Noticias', 'NoticiaController@index');
 
 //detalle de la noticia
-Route::get('/Noticias/{id}', 'NoticiaController@show');
+Route::get('/Noticias/{id}', 'NoticiaController@show')->name('listaNoticias');
 
 //edita la noticia
 Route::post('/Editar','NoticiaController@edit');
