@@ -11,9 +11,9 @@
 |
 */
 
-/* Route::get('/', function () {
+Route::get('/', function () {
     return view('/Noticias');
-}); */
+});
 
 Auth::routes();
 
@@ -27,7 +27,7 @@ Route::post('/Redactar', 'NoticiaController@create');
 
 
 //muestra las noticias
-Route::get('/Noticias', 'NoticiaController@index');
+Route::get('/Noticias', 'NoticiaController@index')->name('Noticias');
 
 //detalle de la noticia
 Route::get('/Noticias/{id}', 'NoticiaController@show')->name('listaNoticias');
