@@ -2,26 +2,32 @@
 
 
 @section('content')
-<div class="container">
+<div class="container" style="margin-top: 40px;padding: 25px; background:white">
     <form action="/Editar" method="post" enctype="multipart/form-data">{{csrf_field() }}
+
+        <div>
+            <h1>
+                Editar Noticia
+            </h1><hr>
+        </div>
     
             <div class="form-group">
-                <label>Titulo de la noticia</label>
+                <label><strong>Titulo de la noticia</strong></label>
                 <input type="text" name="title" class="form-control" placeholder="" value="{{$noticia->title}}">
             </div>
             
             <div class="form-group">
-                <label>Imagen/foto</label><br>
+                <label><strong>Imagen/foto</strong></label><br>
                 <input type="file" name="foto" id="" value="{{ old('foto') }}"><br>
             </div>
     
             <div class="form-group">
-                <label>Subtitulo</label>
+                <label><strong>Subtitulo</strong></label>
                 <input type="text" name="subtitle" class="form-control" placeholder="" value="{{$noticia->subtitle}}">
             </div>
     
             <div class="form-group">
-                <label>Cuerpo de la noticia</label>
+                <label><strong>Cuerpo de la noticia</strong></label>
                 <textarea class="form-control" name="cuerpo" rows="15">{{$noticia->cuerpo}}</textarea>
             </div>
     

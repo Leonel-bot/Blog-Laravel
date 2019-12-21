@@ -14,10 +14,11 @@ class NoticiaController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
+     * @param  \App\Noticia  $noticia
      */
     public function index()
     {
-        $noticias= Noticia::orderBy('id', 'DESC')->paginate(6);
+        $noticias= Noticia::orderBy('id' ,'DESC')->paginate(6);
 
         return view('noticia.lista',compact('noticias'));
         

@@ -79,9 +79,9 @@
             </div>
         </nav>
 
-        <main class="py-4"  style="margin-top: 40px;">
+        <main class="py-4"  style="margin-top: 40px;background: linear-gradient(rgb(121, 193, 199), rgb(122, 91, 156));      background: linear-gradient(rgb(29, 38, 113), rgb(177, 67, 102))">
             @yield('content')
-        
+           
         </main>
     </div>
     <footer id="sticky-footer" class="col-12 py-4 bg-dark text-white-50" style="">

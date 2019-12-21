@@ -2,15 +2,18 @@
 
 
 @section('content')
+<div class="row " style="heigth:100hv">
 <div class="card bg-dark text-white" style="background: url('https://images.unsplash.com/photo-1498736297812-3a08021f206f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80');height: 200px;width: 100%;background-position: right; margin-top: -23px;-webkit-box-shadow: 0px 7px 13px -2px rgba(0,0,0,0.75);
 -moz-box-shadow: 0px 7px 13px -2px rgba(0,0,0,0.75);
 box-shadow: 0px 7px 13px -2px rgba(0,0,0,0.75);">
-  <div class="card-img-overlay">
+  <div class="card-img-overlay ">
     <h1 class="card-title text-center"style="font-family: 'Bungee';" >NOTICIAS GAMERS</h1>
     <h3 class="card-text text-center"style="">El mas grande portal de noticias del mundo gamer y la cultura geek.</h3>
     <h3 class="card-text text-center"style="">Con noticias actualizadas de todo el mundo</h3>
   </div>
 </div>
+</div>
+
 <div class="col-12">
 <div class="card-deck" style="margin-top:40px;justify-content: center;">
 @foreach($noticias as $noticia)

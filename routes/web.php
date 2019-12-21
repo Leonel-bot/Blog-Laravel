@@ -12,12 +12,18 @@
 */
 
 Route::get('/', function () {
-    return view('/Noticias');
+    return view('auth.register');
 });
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
-Auth::routes();
+
+
 
 //Route::get('/home', 'HomeController@index')->name('home');
+
+
+//muestra las noticias
+Route::get('/Noticias', 'NoticiaController@index')->name('Noticias');
 
 //redactar una nueva noticia
 Route::get('/Redactar', function () {
@@ -26,8 +32,6 @@ Route::get('/Redactar', function () {
 Route::post('/Redactar', 'NoticiaController@create');
 
 
-//muestra las noticias
-Route::get('/Noticias', 'NoticiaController@index')->name('Noticias');
 
 //detalle de la noticia
 Route::get('/Noticias/{id}', 'NoticiaController@show')->name('listaNoticias');
@@ -43,7 +47,7 @@ Route::get('/Noticias/{id}/Borrar','NoticiaController@destroy');
 Route::post('/Noticias/{id}/Comentar', 'ComentarioController@create')->middleware('auth');
 
 
-
+Auth::routes();
 
 
 

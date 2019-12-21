@@ -28,14 +28,7 @@ class ComentarioController extends Controller
      */
     public function create(Request $req)
     {
-        $regla=[
-            'comentario'=> 'string'
-
-        ];
-        $mensaje=[
-            'string' =>
-            
-        ];
+        
 
         $comentarios= new Comentario();
         
