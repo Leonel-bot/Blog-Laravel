@@ -2,8 +2,8 @@
 1: composer install
 2: php artisan key:generate
 3: php artisan migrate
-
-
+4: nombre de DB: 'proyecto'
+5: video loom: https://www.loom.com/share/9927b1e3d51b4be48d10a741f25b1396
 
 
 
